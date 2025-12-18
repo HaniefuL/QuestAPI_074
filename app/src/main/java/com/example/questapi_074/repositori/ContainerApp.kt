@@ -5,3 +5,5 @@ interface ContainerApp {
     val repositoryDataSiswa: RepositoryDataSiswa
     val repositorySiswa: RepositoryDataSiswa
 }
+
+class DefaultContainerApp: ContainerApp {}
