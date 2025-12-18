@@ -1,6 +1,12 @@
 package com.example.questapi_074.viewmodel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.questapi_074.repositori.RepositoriDataSiswa
 
-class EntryViewModel (private val repositoryDataSiswa: RepositoriDataSiswa) : ViewModel(){}
+class EntryViewModel (private val repositoryDataSiswa: RepositoriDataSiswa) : ViewModel(){
+    var uiStateSiswa by mutableStateOf(UIStateSiswa())
+        private set
+}
