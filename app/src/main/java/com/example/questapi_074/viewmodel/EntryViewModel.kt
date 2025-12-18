@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.questapi_074.modedata.DetailSiswa
 import com.example.questapi_074.modedata.UIStateSiswa
 import com.example.questapi_074.repositori.RepositoriDataSiswa
+import retrofit2.Response
 
 class EntryViewModel (private val repositoryDataSiswa: RepositoriDataSiswa) : ViewModel(){
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
@@ -20,5 +21,16 @@ class EntryViewModel (private val repositoryDataSiswa: RepositoriDataSiswa) : Vi
 
     fun updateUiState(detailSiswa: DetailSiswa){
         uiStateSiswa = UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(detailSiswa))
+    }
+
+    suspend fun addSiswa(){
+        if (validasiInput()){
+            val sip: Response<Void> = repositoryDataSiswa.postDataSiswa(uiStateSiswa.detailSiswa.toDataSiswa())
+            if (sip.isSuccessful){
+                println("Sukses Tambah Data : ${sip.message()}")
+            }else {
+                println("Gagal Tambah Data : ${sip.message()}")
+            }
+        }
     }
 }
