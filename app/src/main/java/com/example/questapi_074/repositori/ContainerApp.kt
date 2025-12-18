@@ -1,5 +1,6 @@
 package com.example.questapi_074.repositori
 
+import android.app.Application
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -48,4 +49,7 @@ class DefaultContainerApp: ContainerApp {
     override val repositorySiswa: RepositoryDataSiswa by lazy {
         repositoryDataSiswa
     }
+}
+
+class AplikasiDataSiswa : Application() {
 }
