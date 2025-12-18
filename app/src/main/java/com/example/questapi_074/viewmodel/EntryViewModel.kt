@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.questapi_074.modedata.DetailSiswa
 import com.example.questapi_074.modedata.UIStateSiswa
 import com.example.questapi_074.repositori.RepositoriDataSiswa
 
@@ -15,5 +16,9 @@ class EntryViewModel (private val repositoryDataSiswa: RepositoriDataSiswa) : Vi
         return with(uiState){
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
         }
+    }
+
+    fun updateUiState(detailSiswa: DetailSiswa){
+        uiStateSiswa = UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(detailSiswa))
     }
 }
