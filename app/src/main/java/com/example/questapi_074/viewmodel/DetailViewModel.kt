@@ -43,4 +43,14 @@ class DetailViewModel(
             }
         }
     }
+    @SuppressLint("SuspiciousIndentation")
+    suspend fun hapusSatuSiswa() {
+        val resp: Response<Void> = repositoryDataSiswa.hapusSatuSiswa(idSiswa)
+
+        if (resp.isSuccessful) {
+            println("Sukses Hapus Data : ${resp.message()}")
+        } else {
+            println("Gagal Hapus Data : ${resp.errorBody()}")
+        }
+    }
 }
