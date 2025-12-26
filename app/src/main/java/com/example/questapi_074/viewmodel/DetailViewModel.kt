@@ -8,6 +8,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.questapi_074.modedata.DataSiswa
+import com.example.questapi_074.uicontroller.route.DestinasiDetail
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import retrofit2.Response
